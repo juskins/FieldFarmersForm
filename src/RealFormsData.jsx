@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 const RealFormsData = () => {
    const [formData, setFormData] = useState({
@@ -59,7 +61,7 @@ const RealFormsData = () => {
       // },
     });
   
-    const handleChange = (e) => {
+   const handleChange = (e) => {       
      const { name, value } = e.target;
      setFormData((prevData) => ({
        ...prevData,
@@ -79,7 +81,7 @@ const RealFormsData = () => {
    };
   
    
-  // Handle change for last season issues checkboxes
+// Handle change for last season issues checkboxes
 //   const handleLastSeasonIssuesChange = (e) => {
 //      const { name, checked, value } = e.target;
 //      setFormData((prevData) => ({
@@ -94,7 +96,7 @@ const RealFormsData = () => {
    const handleSubmit = (e) => {
      e.preventDefault();
      console.log(formData);
-
+     toast.success('Form submitted successfully',{autoClose:3000})
      setFormData({
       farmerFirstName: "",
       lastName: '',
@@ -157,7 +159,8 @@ const RealFormsData = () => {
 
   return (
     <div className='flex flex-col justify-center items-center min-h-screen my-16 mb-6'>
-      <h1 className='text-3xl font-bold mb-10'> <span className='text-[#F96600]'>Nurus</span> Farmer Form</h1>
+        <h1 className='text-3xl font-bold mb-10'> <span className='text-[#F96600]'>Nurus</span> Farmer Form</h1>
+        <ToastContainer></ToastContainer>
       <form onSubmit={handleSubmit} className='w-[90%] flex flex-col gap-10'>
          <div>
             <h2>Identifying Information</h2>
