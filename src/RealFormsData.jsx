@@ -2,14 +2,23 @@ import React, { useState } from 'react'
 
 const RealFormsData = () => {
    const [formData, setFormData] = useState({
-      farmerFullName: "",
+      farmerFirstName: "",
+      lastName: "",
+      gender: "",
+      age:'',
       farmerID: "",
-      location: "",
       gps: "",
+      dependents: '',
+      county: '',
+      constituency: '',
+      ward: '',
       phoneOwnership: "",
       phoneType: "",
       insightsPreference: "",
-      fieldPolygon: "",
+      email: '',
+      phoneNum:'',
+      farmOwnership: '',
+      farmCoordinate: "",
       farmSize: "",
       isIntercropped: "",
       primaryCrop: "",
@@ -17,6 +26,7 @@ const RealFormsData = () => {
       plantingDate: "",
       seedType: "",
       seedVariety: "",
+      useFertilizer:"",
       fertilizerType: "",
       isIrrigated: "",
       issues: {
@@ -30,23 +40,23 @@ const RealFormsData = () => {
         latePlanting: false,
         others: "",
       },
-      lastSeasonCrop: "",
-      harvestAmount: "",
-      lastSeasonSeedType: "",
-      lastSeasonSeedVariety: "",
-      lastSeasonFertilizerType: "",
-      lastSeasonIrrigated: "",
-      lastSeasonIssues: {
-        drought: false,
-        germination: false,
-        locust: false,
-        flood: false,
-        pestsDiseases: false,
-        cattleEncroachment: false,
-        weeds: false,
-        latePlanting: false,
-        others: "",
-      },
+      // lastSeasonCrop: "",
+      // harvestAmount: "",
+      // lastSeasonSeedType: "",
+      // lastSeasonSeedVariety: "",
+      // lastSeasonFertilizerType: "",
+      // lastSeasonIrrigated: "",
+      // lastSeasonIssues: {
+      //   drought: false,
+      //   germination: false,
+      //   locust: false,
+      //   flood: false,
+      //   pestsDiseases: false,
+      //   cattleEncroachment: false,
+      //   weeds: false,
+      //   latePlanting: false,
+      //   others: "",
+      // },
     });
   
     const handleChange = (e) => {
@@ -70,31 +80,39 @@ const RealFormsData = () => {
   
    
   // Handle change for last season issues checkboxes
-  const handleLastSeasonIssuesChange = (e) => {
-     const { name, checked, value } = e.target;
-     setFormData((prevData) => ({
-       ...prevData,
-       lastSeasonIssues: {
-         ...prevData.lastSeasonIssues,
-         [name]: name === 'others' ? value : checked // Handle 'others' text input differently
-       }
-     }));
-   };
+//   const handleLastSeasonIssuesChange = (e) => {
+//      const { name, checked, value } = e.target;
+//      setFormData((prevData) => ({
+//        ...prevData,
+//        lastSeasonIssues: {
+//          ...prevData.lastSeasonIssues,
+//          [name]: name === 'others' ? value : checked // Handle 'others' text input differently
+//        }
+//      }));
+//    };
   
    const handleSubmit = (e) => {
      e.preventDefault();
      console.log(formData);
-     // handle form submission here
 
      setFormData({
-      farmerFullName: "",
+      farmerFirstName: "",
+      lastName: '',
+      gender: "",
+      age:"",
       farmerID: "",
-      location: "",
       gps: "",
+      dependents: '',
+      county: '',
+      constituency: '',
+      ward: '',
       phoneOwnership: "",
       phoneType: "",
       insightsPreference: "",
-      fieldPolygon: "",
+      email: '',
+      phoneNum:'',
+      farmOwnership: "",
+      farmCoordinate: "",
       farmSize: "",
       isIntercropped: "",
       primaryCrop: "",
@@ -102,6 +120,7 @@ const RealFormsData = () => {
       plantingDate: "",
       seedType: "",
       seedVariety: "",
+      useFertilizer: "",
       fertilizerType: "",
       isIrrigated: "",
       issues: {
@@ -115,23 +134,23 @@ const RealFormsData = () => {
          latePlanting: false,
          others: "",
       },
-      lastSeasonCrop: "",
-      harvestAmount: "",
-      lastSeasonSeedType: "",
-      lastSeasonSeedVariety: "",
-      lastSeasonFertilizerType: "",
-      lastSeasonIrrigated: "",
-      lastSeasonIssues: {
-         drought: false,
-         germination: false,
-         locust: false,
-         flood: false,
-         pestsDiseases: false,
-         cattleEncroachment: false,
-         weeds: false,
-         latePlanting: false,
-         others: "",
-      },
+      // lastSeasonCrop: "",
+      // harvestAmount: "",
+      // lastSeasonSeedType: "",
+      // lastSeasonSeedVariety: "",
+      // lastSeasonFertilizerType: "",
+      // lastSeasonIrrigated: "",
+      // lastSeasonIssues: {
+      //    drought: false,
+      //    germination: false,
+      //    locust: false,
+      //    flood: false,
+      //    pestsDiseases: false,
+      //    cattleEncroachment: false,
+      //    weeds: false,
+      //    latePlanting: false,
+      //    others: "",
+      // },
     });
    };
 
@@ -143,20 +162,50 @@ const RealFormsData = () => {
          <div>
             <h2>Identifying Information</h2>
             <div className='grid'>
-
                <label>
-                  <span>Farmer Full Name:</span>
+                  Gender:
+                  <select name="gender" value={formData.gender} onChange={handleChange} required>
+                     <option value="">Select Gender</option>
+                     <option value="male">Male</option>
+                     <option value="female">Female</option>
+                  </select>
+               </label>
+                 
+               <label>
+                  <span>Farmer First Name:</span>
                   <input
                      type="text"
-                     name="farmerFullName"
-                     value={formData.farmerFullName}
+                     name="farmerFirstName"
+                     value={formData.farmerFirstName}
+                     onChange={handleChange}
+                     required
+                  />
+               </label>
+               
+               <label>
+                  <span>Last Name:</span>
+                  <input
+                     type="text"
+                     name="lastName"
+                     value={formData.lastName}
+                     onChange={handleChange}
+                     required
+                  />
+               </label>
+                 
+               <label>
+                  <span>Age:</span>
+                  <input
+                     type="number"
+                     name="age"
+                     value={formData.age}
                      onChange={handleChange}
                      required
                   />
                </label>
 
                <label>
-                  Govt Issued Farmer ID Number:
+                  National ID:
                   <input
                      type="text"
                      name="farmerID"
@@ -176,16 +225,58 @@ const RealFormsData = () => {
                      required
                   />
                </label>
-
+                 
                <label>
-                  Choose the State/District/County where the farm is located:
+                  Number of Dependents:
                   <input
-                     type="text"
-                     name="location"
-                     value={formData.location}
+                     type="number"
+                     name="dependents"
+                     value={formData.dependents}
                      onChange={handleChange}
                      required
                   />
+               </label>
+
+               <label>
+                  County:
+                  <select
+                     name="county"
+                     value={formData.county}
+                     onChange={handleChange}
+                     required
+                  >
+                     <option value="">Select County</option>
+                     <option value="county1">County 1</option>
+                     <option value="county2">County 2</option>
+                  </select>
+               </label>
+                 
+               <label>
+                  Constituency:
+                  <select
+                     name="constituency"
+                     value={formData.constituency}
+                     onChange={handleChange}
+                     required
+                  >
+                     <option value="">Select Constituency</option>
+                     <option value="constituency1">Constituency 1</option>
+                     <option value="constituency2">Constituency 2</option>
+                  </select>
+               </label>
+                 
+               <label>
+                  Ward:
+                  <select
+                     name="ward"
+                     value={formData.ward}
+                     onChange={handleChange}
+                     required
+                  >
+                     <option value="">Select Ward</option>
+                     <option value="ward1">Ward 1</option>
+                     <option value="ward2">Ward 2</option>
+                  </select>
                </label>
             </div>
          </div>
@@ -201,7 +292,7 @@ const RealFormsData = () => {
                   onChange={handleChange}
                   required
                >
-                  <option value="">Select</option>
+                  <option value="">Select an option</option>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
                </select>
@@ -215,7 +306,7 @@ const RealFormsData = () => {
                      onChange={handleChange}
                      required
                   >
-                     <option value="">Select</option>
+                     <option value="">Select an option</option>
                      <option value="Feature">Feature</option>
                      <option value="Smart">Smart</option>
                   </select>
@@ -229,11 +320,41 @@ const RealFormsData = () => {
                      onChange={handleChange}
                      required
                   >
-                     <option value="">Select</option>
+                     <option value="">Select an option</option>
                      <option value="SMS">SMS</option>
                      <option value="Phone App">Phone App</option>
                   </select>
                </label>
+            </div>
+         </div>
+           
+         <div>
+            <h2>Contact Details</h2>
+            <div className="grid">
+               <label>
+                  <span>Email Address:</span>
+                  <input
+                     type="text"
+                     name="email"
+                     value={formData.email}
+                     placeholder='nurusolutions@gmail.com'
+                     onChange={handleChange}
+                     required
+                  />
+               </label>
+
+               <label>
+                  <span>Phone Number:</span>
+                  <input
+                     type="tel"
+                     name="phoneNum"
+                     value={formData.phoneNum}
+                     onChange={handleChange}
+                     required
+                  />
+               </label>
+
+               
             </div>
          </div>
 
@@ -241,11 +362,26 @@ const RealFormsData = () => {
             <h2>Farm Profile</h2>
             <div className='grid'>
                <label>
-                  Field Polygon:
+                  Farm Ownership:
+                  <select
+                     name="farmOwnership"
+                     value={formData.farmOwnership}
+                     onChange={handleChange}
+                     required
+                  >
+                     <option value="">Select Ownership</option>
+                     <option value="lease">Lease</option>
+                     <option value="rent">Rent</option>
+                     <option value="owner">Owner</option>
+                  </select>
+               </label>
+                 
+               <label>
+                  Farm Coordinate:
                   <input
                      type="text"
-                     name="fieldPolygon"
-                     value={formData.fieldPolygon}
+                     name="farmCoordinate"
+                     value={formData.farmCoordinate}
                      onChange={handleChange}
                      required
                   />
@@ -275,7 +411,7 @@ const RealFormsData = () => {
                      onChange={handleChange}
                      required
                   >
-                     <option value="">Select</option>
+                     <option value="">Select an option</option>
                      <option value="Yes">Yes</option>
                      <option value="No">No</option>
                   </select>
@@ -334,16 +470,33 @@ const RealFormsData = () => {
                      required
                   />
                </label>
+                 
+               <label>
+                  Do you use fertilizer?
+                  <select
+                     name="useFertilizer"
+                     value={formData.useFertilizer}
+                     onChange={handleChange}
+                     required
+                  >
+                     <option value="">Select an option</option>
+                     <option value="Yes">Yes</option>
+                     <option value="No">No</option>
+                  </select>
+               </label>
 
                <label>
                   Fertilizer Type:
-                  <input
-                     type="text"
+                  <select
                      name="fertilizerType"
                      value={formData.fertilizerType}
                      onChange={handleChange}
                      required
-                  />
+                  >
+                     <option value="">If Yes, select Type</option>
+                     <option value="organic">Organic</option>
+                     <option value="inorganic">Inorganic</option>
+                  </select>
                </label>
 
                <label>
@@ -354,7 +507,7 @@ const RealFormsData = () => {
                      onChange={handleChange}
                      required
                   >
-                     <option value="">Select</option>
+                     <option value="">Select an option</option>
                      <option value="Yes">Yes</option>
                      <option value="No">No</option>
                   </select>
@@ -449,7 +602,7 @@ const RealFormsData = () => {
             </label>
          </div>
 
-         <div>
+         {/* <div>
             <h2>Last Season Crop Information</h2>
             <div className="grid">
                <label>
@@ -504,7 +657,7 @@ const RealFormsData = () => {
                      onChange={handleChange}
                      required
                   >
-                     <option value="">Select</option>
+                     <option value="">Select an option</option>
                      <option value="Yes">Yes</option>
                      <option value="No">No</option>
                   </select>
@@ -599,7 +752,7 @@ const RealFormsData = () => {
                </div>
             </label>
 
-         </div>
+         </div> */}
 
          <button type="submit" className="p-2 bg-[#F96600] hover:bg-black hover:text-white text-white rounded-lg px-4">Submit</button>
       </form>
