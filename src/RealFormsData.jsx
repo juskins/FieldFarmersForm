@@ -249,8 +249,11 @@ const RealFormsData = () => {
                      required
                   >
                      <option value="">Select County</option>
-                     <option value="county1">County 1</option>
-                     <option value="county2">County 2</option>
+                     <option value="mombasa">Mombasa</option>
+                     <option value="kwale">Kwale</option>
+                     <option value="Kilifi">Kilifi</option>
+                     <option value="Tana River">Tana River</option>
+                     <option value="Lamu">Lamu</option>
                   </select>
                </label>
                  
@@ -263,8 +266,11 @@ const RealFormsData = () => {
                      required
                   >
                      <option value="">Select Constituency</option>
-                     <option value="constituency1">Constituency 1</option>
-                     <option value="constituency2">Constituency 2</option>
+                     <option value="Changamwe">Changamwe</option>
+                     <option value="Jomvu">Jomvu</option>
+                     <option value="Kisauni,">Kisauni,</option>
+                     <option value="Mvita">Mvita</option>
+                     <option value="Likoni">Likoni</option>
                   </select>
                </label>
                  
