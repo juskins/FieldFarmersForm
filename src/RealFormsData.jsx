@@ -31,17 +31,17 @@ const RealFormsData = () => {
       useFertilizer:"",
       fertilizerType: "",
       isIrrigated: "",
-      issues: {
-        drought: false,
-        germination: false,
-        locust: false,
-        flood: false,
-        pestsDiseases: false,
-        cattleEncroachment: false,
-        weeds: false,
-        latePlanting: false,
-        others: "",
-      },
+      // issues: {
+      //   drought: false,
+      //   germination: false,
+      //   locust: false,
+      //   flood: false,
+      //   pestsDiseases: false,
+      //   cattleEncroachment: false,
+      //   weeds: false,
+      //   latePlanting: false,
+      //   others: "",
+      // },
       // lastSeasonCrop: "",
       // harvestAmount: "",
       // lastSeasonSeedType: "",
@@ -69,16 +69,16 @@ const RealFormsData = () => {
      }));
    };
   
-   const handleIssuesChange = (e) => {
-     const { name, checked, value } = e.target;
-     setFormData((prevData) => ({
-       ...prevData,
-       issues: {
-         ...prevData.issues,
-         [name]: name === 'others' ? value : checked
-       }
-     }));
-   };
+   // const handleIssuesChange = (e) => {
+   //   const { name, checked, value } = e.target;
+   //   setFormData((prevData) => ({
+   //     ...prevData,
+   //     issues: {
+   //       ...prevData.issues,
+   //       [name]: name === 'others' ? value : checked
+   //     }
+   //   }));
+   // };
   
    
 // Handle change for last season issues checkboxes
@@ -125,17 +125,17 @@ const RealFormsData = () => {
       useFertilizer: "",
       fertilizerType: "",
       isIrrigated: "",
-      issues: {
-         drought: false,
-         germination: false,
-         locust: false,
-         flood: false,
-         pestsDiseases: false,
-         cattleEncroachment: false,
-         weeds: false,
-         latePlanting: false,
-         others: "",
-      },
+      // issues: {
+      //    drought: false,
+      //    germination: false,
+      //    locust: false,
+      //    flood: false,
+      //    pestsDiseases: false,
+      //    cattleEncroachment: false,
+      //    weeds: false,
+      //    latePlanting: false,
+      //    others: "",
+      // },
       // lastSeasonCrop: "",
       // harvestAmount: "",
       // lastSeasonSeedType: "",
@@ -524,7 +524,7 @@ const RealFormsData = () => {
                </label>
             </div>
 
-            <label className='mt-10'>
+            {/* <label className='mt-10'>
                <span className='font-semibold'>Issues reported by farmers during the season plus the date:</span>
                <div className="flex gap-x-10 gap-y-5 flex-wrap ">
                   <label className='flex flex-row items-center'>
@@ -609,7 +609,7 @@ const RealFormsData = () => {
                      />
                   </label>
                </div>
-            </label>
+            </label> */}
          </div>
 
          {/* <div>
