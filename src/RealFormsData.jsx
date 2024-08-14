@@ -18,8 +18,10 @@ const RealFormsData = () => {
       phoneType: "",
       insightsPreference: "",
       email: '',
-      phoneNum:'',
+      pryPhoneNum:'',
+      secPhoneNum:'',
       farmOwnership: '',
+      rentPeriod:'',
       farmCoordinate: "",
       farmSize: "",
       isIntercropped: "",
@@ -112,8 +114,10 @@ const RealFormsData = () => {
       phoneType: "",
       insightsPreference: "",
       email: '',
-      phoneNum:'',
+      pryPhoneNum: '',
+      secPhoneNum:'',
       farmOwnership: "",
+      rentPeriod:'',
       farmCoordinate: "",
       farmSize: "",
       isIntercropped: "",
@@ -164,16 +168,7 @@ const RealFormsData = () => {
       <form onSubmit={handleSubmit} className='w-[90%] flex flex-col gap-10'>
          <div>
             <h2>Identifying Information</h2>
-            <div className='grid'>
-               <label>
-                  Gender:
-                  <select name="gender" value={formData.gender} onChange={handleChange} required>
-                     <option value="">Select Gender</option>
-                     <option value="male">Male</option>
-                     <option value="female">Female</option>
-                  </select>
-               </label>
-                 
+            <div className='grid'>  
                <label>
                   <span>First Name:</span>
                   <input
@@ -194,6 +189,15 @@ const RealFormsData = () => {
                      onChange={handleChange}
                      required
                   />
+               </label>
+                 
+               <label>
+                  Gender:
+                  <select name="gender" value={formData.gender} onChange={handleChange} required>
+                     <option value="">Select Gender</option>
+                     <option value="male">Male</option>
+                     <option value="female">Female</option>
+                  </select>
                </label>
                  
                <label>
@@ -353,16 +357,26 @@ const RealFormsData = () => {
                </label>
 
                <label>
-                  <span>Phone Number:</span>
+                  <span>Primary Phone Number:</span>
                   <input
                      type="tel"
-                     name="phoneNum"
-                     value={formData.phoneNum}
+                     name="pryPhoneNum"
+                     value={formData.pryPhoneNum}
                      onChange={handleChange}
                      required
                   />
                </label>
 
+               <label>
+                  <span>Secondary Phone Number:</span>
+                  <input
+                     type="tel"
+                     name="secPhoneNum"
+                     value={formData.secPhoneNum}
+                       onChange={handleChange}
+                       placeholder='optional'
+                  />
+               </label>
                
             </div>
          </div>
@@ -383,6 +397,17 @@ const RealFormsData = () => {
                      <option value="rent">Rent</option>
                      <option value="owner">Owner</option>
                   </select>
+               </label>
+
+               <label>
+                  Rent period for land:
+                  <input
+                     type="text"
+                     name="rentPeriod"
+                     value={formData.rentPeriod}
+                     onChange={handleChange}
+                     placeholder='e.g 15 years'
+                  />
                </label>
                  
                <label>
