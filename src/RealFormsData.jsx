@@ -175,7 +175,7 @@ const RealFormsData = () => {
                </label>
                  
                <label>
-                  <span>Farmer First Name:</span>
+                  <span>First Name:</span>
                   <input
                      type="text"
                      name="farmerFirstName"
@@ -501,6 +501,7 @@ const RealFormsData = () => {
                      value={formData.fertilizerType}
                      onChange={handleChange}
                      required
+            
                   >
                      <option value="">If Yes, select Type</option>
                      <option value="organic">Organic</option>
