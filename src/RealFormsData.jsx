@@ -368,14 +368,18 @@ const RealFormsData = () => {
                </label>
 
                <label>
-                  <span>Secondary Phone Number:</span>
-                  <input
-                     type="tel"
-                     name="secPhoneNum"
-                     value={formData.secPhoneNum}
-                       onChange={handleChange}
-                       placeholder='optional'
-                  />
+                    <span>Secondary Phone Number:</span>
+                    <div className='phone flex items-center relative'>
+                       <span className='absolute left-2'>+254</span>
+                        <input
+                           type="tel"
+                           name="secPhoneNum"
+                           value={formData.secPhoneNum}
+                           onChange={handleChange}
+                          placeholder='optional'
+                          className='pl-64'
+                        />
+                  </div>
                </label>
                
             </div>

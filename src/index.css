@@ -29,6 +29,9 @@ input, select{
   display: inline-block;
   outline: none;
 }
+.phone input{
+  padding-left: 50px !important;
+}
 
 label{
   @apply flex flex-col text-sm gap-2
