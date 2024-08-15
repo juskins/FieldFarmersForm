@@ -64,10 +64,16 @@ const RealFormsData = () => {
     });
   
    const handleChange = (e) => {       
-     const { name, value } = e.target;
+      const { name, value } = e.target;
+      let updatedValue = value;
+      if (name === "pryPhoneNum" || name === "secPhoneNum") {
+         if (!value.startsWith("+254")) {
+         updatedValue = "+254-" + value;
+         }
+      }
      setFormData((prevData) => ({
        ...prevData,
-       [name]: value
+        [name]: updatedValue
      }));
    };
   
@@ -358,26 +364,29 @@ const RealFormsData = () => {
 
                <label>
                   <span>Primary Phone Number:</span>
-                  <input
-                     type="tel"
-                     name="pryPhoneNum"
-                     value={formData.pryPhoneNum}
-                     onChange={handleChange}
-                     required
-                  />
+                    <div className='phone flex items-center relative'>
+                       {/* <span className='absolute left-2'>+254</span> */}
+                       <input
+                        type="tel"
+                        name="pryPhoneNum"
+                        value={formData.pryPhoneNum}
+                          onChange={handleChange}
+                          placeholder='+234'
+                        required
+                     />
+                  </div>
                </label>
 
                <label>
                     <span>Secondary Phone Number:</span>
                     <div className='phone flex items-center relative'>
-                       <span className='absolute left-2'>+254</span>
+                       {/* <span className='absolute left-2'>+254</span> */}
                         <input
                            type="tel"
                            name="secPhoneNum"
                            value={formData.secPhoneNum}
                            onChange={handleChange}
-                          placeholder='optional'
-                          className='pl-64'
+                           placeholder='optional'
                         />
                   </div>
                </label>
@@ -406,7 +415,7 @@ const RealFormsData = () => {
                <label>
                   Rent period for land:
                   <input
-                     type="text"
+                     type="number"
                      name="rentPeriod"
                      value={formData.rentPeriod}
                      onChange={handleChange}
