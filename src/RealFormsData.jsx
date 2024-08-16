@@ -76,6 +76,21 @@ const RealFormsData = () => {
         [name]: updatedValue
      }));
    };
+
+
+   const sendForm = () => {
+      fetch('http://localhost:8000/users', {
+         method: 'POST',
+         headers: {'content-type': 'application/json'},
+         body: JSON.stringify(formData)
+      })
+         .then(res => {
+         toast.success('Form submitted successfully',{autoClose:3000})
+         })
+         .catch(err => {
+         toast.error(`Failed: ${err.message}`)
+      })
+   }
   
    // const handleIssuesChange = (e) => {
    //   const { name, checked, value } = e.target;
@@ -102,9 +117,8 @@ const RealFormsData = () => {
 //    };
   
    const handleSubmit = (e) => {
-     e.preventDefault();
-     console.log(formData);
-     toast.success('Form submitted successfully',{autoClose:3000})
+      e.preventDefault();
+      sendForm();
      setFormData({
       farmerFirstName: "",
       lastName: '',

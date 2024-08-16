@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": "31a8",
+      "farmerFirstName": "Babatunde",
+      "lastName": "Omojuwa",
+      "gender": "male",
+      "age": "26",
+      "farmerID": "20041516",
+      "gps": "4446f",
+      "dependents": "21",
+      "county": "mombasa",
+      "constituency": "Changamwe",
+      "ward": "ward2",
+      "phoneOwnership": "Yes",
+      "phoneType": "Feature",
+      "insightsPreference": "SMS",
+      "email": "omojuwababatunde1@gmail.com",
+      "pryPhoneNum": "+254-07081051810",
+      "secPhoneNum": "+254-7081051810",
+      "farmOwnership": "lease",
+      "rentPeriod": "10",
+      "farmCoordinate": "12",
+      "farmSize": "27",
+      "isIntercropped": "Yes",
+      "primaryCrop": "maize",
+      "secondaryCrop": "sugar cane",
+      "plantingDate": "2024-08-14",
+      "seedType": "GRAIN",
+      "seedVariety": "ADNADA",
+      "useFertilizer": "Yes",
+      "fertilizerType": "organic",
+      "isIrrigated": "Yes"
+    }
+  ]
+}
